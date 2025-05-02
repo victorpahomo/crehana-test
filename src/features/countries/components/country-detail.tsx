@@ -67,7 +67,11 @@ export const CountryDetail = ({ country }: CountryDetailProps) => {
                     Moneda
                   </dt>
                   <dd className="mt-1 text-lg font-medium text-purple-900">
-                    {country.currency}
+                    <div className="flex flex-wrap gap-2">
+                      {country.currency.split(",").map((currency, index) => (
+                        <span key={index}>{currency.trim()}</span>
+                      ))}
+                    </div>
                   </dd>
                 </div>
               )}
