@@ -3,12 +3,12 @@ import { useParams } from "next/navigation";
 import Link from "next/link";
 
 import { CountryDetail } from "@/features/countries/components/country-detail";
-import ExclamationTriangleSvg from "@/assets/react-svg/exclamation-triangle";
 import { useCountry } from "@/features/countries/api/use-country";
+import NotFoundPage from "@/components/error/not-found-page";
 import ArrowLeftSvg from "@/assets/react-svg/arrow-left";
+import ErrorPage from "@/components/error/error-page";
 import UILayout from "@/components/layout/ui-layout";
 import Spinner from "@/components/ui/spinner";
-import XSvg from "@/assets/react-svg/x";
 
 export default function CountryDetailPage() {
   const params = useParams();
@@ -27,28 +27,12 @@ export default function CountryDetailPage() {
   if (error) {
     return (
       <UILayout>
-        <div className="animate-fadeIn">
-          <div className="bg-red-50 border-l-4 border-red-500 p-6 mb-6 rounded-r-md shadow-sm">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mr-4">
-                <XSvg width={24} height={24} color="#dc2626" />
-              </div>
-              <div>
-                <p className="text-lg font-medium text-red-700">
-                  Error al cargar el país
-                </p>
-                <p className="text-sm text-red-600">{error.message}</p>
-              </div>
-            </div>
-          </div>
-          <Link
-            href="/countries"
-            className="inline-flex items-center px-4 py-2.5 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
-          >
-            <ArrowLeftSvg width={16} height={16} color="currentColor" />
-            <span className="ml-2">Volver a Países</span>
-          </Link>
-        </div>
+        <ErrorPage
+          title="Error al cargar el país"
+          message="No pudimos obtener la información del país solicitado."
+          error={error}
+          buttonText="Intentar nuevamente"
+        />
       </UILayout>
     );
   }
@@ -56,35 +40,15 @@ export default function CountryDetailPage() {
   if (!country) {
     return (
       <UILayout>
-        <div className="animate-fadeIn">
-          <div className="bg-yellow-50 border-l-4 border-yellow-500 p-6 mb-6 rounded-r-md shadow-sm">
-            <div className="flex items-center">
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center mr-4">
-                <ExclamationTriangleSvg
-                  width={24}
-                  height={24}
-                  color="#d97706"
-                />
-              </div>
-              <div>
-                <p className="text-lg font-medium text-yellow-700">
-                  País no encontrado
-                </p>
-                <p className="text-sm text-yellow-600">
-                  El país con código &ldquo;{countryCode}&rdquo; no pudo ser
-                  encontrado.
-                </p>
-              </div>
-            </div>
-          </div>
-          <Link
-            href="/countries"
-            className="inline-flex items-center px-4 py-2.5 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
-          >
-            <ArrowLeftSvg width={16} height={16} color="currentColor" />
-            <span className="ml-2">Volver a Países</span>
-          </Link>
-        </div>
+        <NotFoundPage
+          title="País no encontrado"
+          message="El país que estás buscando no existe o ha sido movido."
+          code={countryCode}
+          backLink={{
+            text: "Volver a Países",
+            href: "/countries",
+          }}
+        />
       </UILayout>
     );
   }

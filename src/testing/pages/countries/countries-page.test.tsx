@@ -75,7 +75,12 @@ describe("CountriesPage", () => {
 
     render(<CountriesPage />);
     expect(screen.getByText("Error al cargar los países")).toBeInTheDocument();
-    expect(screen.getByText(errorMessage)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "No pudimos cargar la lista de países. Por favor, intente nuevamente."
+      )
+    ).toBeInTheDocument();
+    expect(screen.getByText("Error")).toBeInTheDocument();
   });
 
   it("renders countries list when data is loaded", () => {
