@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://crehana-countries.vercel.app"),
+  metadataBase: new URL("https://crehana-test.vercel.app/"),
   title: "Crehana Countries | Explorador de Países - @victorpahomo",
   description:
     "Aplicación web para explorar información sobre países del mundo, sus banderas, población, idiomas y más. Desarrollado como prueba técnica para Crehana.",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "https://crehana-countries.vercel.app/",
+    url: "https://crehana-test.vercel.app/",
     title: "Crehana Countries | Explorador de Países",
     description:
       "Aplicación web para explorar información sobre países del mundo, sus banderas, población, idiomas y más.",
