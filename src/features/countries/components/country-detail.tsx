@@ -16,8 +16,8 @@ export const CountryDetail = ({ country }: CountryDetailProps) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden border border-purple-100 shadow-md">
       <div className="p-6">
-        <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8 border-b border-purple-100 pb-6">
-          <div className="relative w-24 h-24 md:w-32 md:h-32 overflow-hidden">
+        <div className="flex flex-col md:flex-row md:items-center gap-6 mb-8 border-b border-purple-100 pb-6 text-center items-center md:text-left">
+          <div className="w-32 h-32 flex items-center justify-center">
             <CountryFlag countryCode={country.code} width={128} height={128} />
           </div>
           <div>
