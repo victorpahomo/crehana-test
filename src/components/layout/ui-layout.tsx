@@ -19,7 +19,7 @@ const UILayout: React.FC<UILayoutProps> = ({ children, className = "" }) => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-purple-50">
       <Header />
-      <div className="flex-grow w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-10 lg:px-32 pb-10 pt-6">
+      <div className="flex-grow w-full max-w-7xl mx-auto px-10 md:px-20 lg:px-32 pb-10 pt-6">
         <main className={`${className} w-full animate-fadeIn`}>{children}</main>
       </div>
       <Footer />
