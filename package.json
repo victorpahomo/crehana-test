@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --config src/testing/config/jest.config.js",
-    "vercel-build": "npm install --legacy-peer-deps && next build"
+    "test": "jest --config src/testing/config/jest.config.js"
   },
   "dependencies": {
     "@apollo/client": "^3.13.8",
