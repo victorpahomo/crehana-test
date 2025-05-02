@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+
+import ScrollToTopButton from "@/components/ui/scroll-to-top-button";
 import FloatingButton from "@/components/ui/floating-button";
 import { Poppins, Geist_Mono } from "next/font/google";
 import AppProvider from "@/providers/app-provider";
@@ -81,6 +83,7 @@ export default function RootLayout({
         <AppProvider>
           {children}
           <FloatingButton href="/about" label="Acerca de" />
+          <ScrollToTopButton />
         </AppProvider>
       </body>
     </html>
