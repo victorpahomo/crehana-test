@@ -3,6 +3,7 @@ import { CountryList } from "@/features/countries/components/country-list";
 import { useCountries } from "@/features/countries/api/use-countries";
 import UILayout from "@/components/layout/ui-layout";
 import Spinner from "@/components/ui/spinner";
+import ErrorPage from "@/components/error/error-page";
 
 export default function CountriesPage() {
   const { countries, continents, isLoading, error } = useCountries();
@@ -18,14 +19,12 @@ export default function CountriesPage() {
   if (error) {
     return (
       <UILayout>
-        <div className="bg-red-50 border-l-4 border-red-500 p-4">
-          <div className="flex">
-            <div>
-              <p className="text-red-700">Error al cargar los países</p>
-              <p className="text-sm text-red-500">{error.message}</p>
-            </div>
-          </div>
-        </div>
+        <ErrorPage
+          title="Error al cargar los países"
+          message="No pudimos cargar la lista de países. Por favor, intente nuevamente."
+          error={error}
+          buttonText="Intentar nuevamente"
+        />
       </UILayout>
     );
   }
