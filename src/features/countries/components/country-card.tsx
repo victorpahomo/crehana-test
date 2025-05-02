@@ -35,7 +35,7 @@ export const CountryCard = ({ country }: CountryCardProps) => {
               </p>
 
               {country.currency && (
-                <div className="inline-flex items-center px-2 py-1 text-xs font-medium text-purple-700 bg-purple-50 rounded-lg">
+                <div className="inline-flex items-center px-2 py-1 text-xs font-medium text-purple-700 bg-purple-50 rounded-lg truncate">
                   DIVISA: {country.currency}
                 </div>
               )}
